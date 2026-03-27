@@ -27,6 +27,8 @@ jobs:
       - name: Get SCons from NVDA Addon Template
         run: |
           git clone --depth 1 https://github.com/nvaccess/AddonTemplate.git scons_template
+          Remove-Item -Recurse -Force site_scons -ErrorAction SilentlyContinue
+          Remove-Item -Force sconstruct -ErrorAction SilentlyContinue
           Copy-Item -Recurse scons_template/site_scons .
           Copy-Item -Recurse scons_template/sconstruct .
           Remove-Item -Recurse scons_template
