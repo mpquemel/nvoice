@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVoice - Assistant Vocal IA pour NVDA</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            font-size: 110%;
+        }
+        main { max-width: 900px; margin: 0 auto; }
+        h1, h2, h3 { color: #FFD700; margin-top: 1.5em; }
+        h1 { border-bottom: 2px solid #FFD700; padding-bottom: 10px; }
+        a { color: #4DB8FF; text-decoration: underline; }
+        a:hover, a:focus { color: #FF9900; background-color: #222222; outline: 3px solid #FFD700; outline-offset: 2px; }
+        code, kbd { background-color: #2A2A2A; color: #E0E0E0; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; border: 1px solid #555555; }
+        kbd { color: #FFD700; font-weight: bold; }
+        .note { background-color: #1E2A38; border-left: 5px solid #4DB8FF; padding: 15px; margin: 20px 0; }
+        dl { background-color: #1A1A1A; padding: 20px; border-radius: 8px; border: 1px solid #333333; }
+        dt { font-weight: bold; font-size: 1.2em; color: #FFD700; margin-top: 15px; }
+        dd { margin-left: 0; margin-bottom: 15px; padding-left: 20px; border-left: 2px solid #444444; }
+        footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #444444; text-align: center; }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>NVoice - Assistant Vocal IA pour NVDA</h1>
+            <p><strong>Auteur:</strong> Melhym Quemel</p>
+            <p><strong>Version:</strong> 2.0.0</p>
+        </header>
+
+        <section>
+            <h2>1. À propos de NVoice</h2>
+            <p><strong>NVoice</strong> est une extension qui transforme NVDA en un assistant conversationnel IA à très faible latence. Avec lui, vous pouvez dialoguer avec les modèles d'IA les plus avancés au monde en utilisant simplement votre voix. NVoice n'utilise pas de bibliothèques tierces lourdes; il diffuse le texte IA directement vers la voix native de NVDA en temps réel, compatible avec NVDA 32 bits et 64 bits.</p>
+        </section>
+
+        <section>
+            <h2>2. Raccourcis Clavier (Commandes Globales)</h2>
+            <p>NVoice a été conçu pour être déclenché rapidement sans interrompre votre flux de travail:</p>
+            
+            <dl>
+                <dt><kbd>NVDA + Z</kbd></dt>
+                <dd><strong>Démarrer/Arrêter Conversation:</strong> Appuyez pour que NVoice commence à écouter votre microphone. NVDA annoncera "Écoute...". Parlez ce que vous voulez et appuyez à nouveau sur le raccourci pour envoyer l'audio.</dd>
+
+                <dt><kbd>NVDA + Shift + Z</kbd></dt>
+                <dd><strong>Envoyer le Contexte de l'Écran:</strong> Fonctionne comme la commande précédente, mais capture le texte où se trouve le curseur NVDA et l'ajoute à votre question.</dd>
+
+                <dt><kbd>NVDA + Alt + Z</kbd></dt>
+                <dd><strong>Effacer l'Historique:</strong> Réinitialise la mémoire de contexte de la conversation actuelle. Cette commande n'efface pas l'historique enregistré dans un fichier.</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>3. Configuration des Fournisseurs IA</h2>
+            <p>Allez dans <strong>NVDA + N > Préférences > Paramètres > NVoice</strong> pour configurer:</p>
+
+            <h3>Groq (Recommandé pour STT)</h3>
+            <p>Groq utilise une architecture de traitement ultra-rapide (LPU). Recommandé pour la transcription vocale (STT) avec Whisper-Large.</p>
+            <ul>
+                <li><strong>Clé API:</strong> <a href="https://console.groq.com/keys" target="_blank">Groq Console</a></li>
+                <li><strong>Coût:</strong> Quota gratuit extrêmement généreux.</li>
+            </ul>
+
+            <h3>Google Gemini</h3>
+            <p>Intelligence artificielle de Google. Excellent pour des réponses fluides et des analyses détaillées.</p>
+            <ul>
+                <li><strong>Clé API:</strong> <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
+            </ul>
+
+            <h3>OpenAI (ChatGPT)</h3>
+            <p>Offre les puissants modèles GPT-5 et supérieurs.</p>
+            <ul>
+                <li><strong>Clé API:</strong> <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></li>
+            </ul>
+
+            <h3>OpenRouter (Multi-Modèles)</h3>
+            <p>Avec une seule clé, accédez à des centaines de modèles (Claude, Mistral, Llama, etc.).</p>
+            <ul>
+                <li><strong>Clé API:</strong> <a href="https://openrouter.ai/keys" target="_blank">OpenRouter Keys</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Vie Privée Totale: IA Locale avec Ollama</h2>
+            <p>Pour une vie privée absolue ou un travail hors ligne, NVoice s'intègre à <strong>Ollama</strong>. Configurez à l'adresse par défaut <code>http://localhost:11434</code>.</p>
+
+            <div class="note">
+                <p><strong>Modèles Recommandés pour Ordinateurs Modestes:</strong></p>
+                <ul>
+                    <li><code>qwen2:0.5b</code> - Extrêmement petit et rapide.</li>
+                    <li><code>llama3.2:1b</code> - Super léger, excellent pour les textes rapides.</li>
+                    <li><code>phi3:mini</code> - Haute capacité de raisonnement.</li>
+                </ul>
+                <p>Pour télécharger: <code>ollama pull llama3.2:1b</code></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Tutoriel: Installer Whisper et Ollama (Windows)</h2>
+            
+            <h3>Étape 1: Installer Python et FFmpeg</h3>
+            <p>Ouvrez l'Invite de Commandes en tant qu'Administrateur et exécutez:</p>
+            <p><code>winget install Python.Python.3.11</code></p>
+            <p><code>winget install Gyan.FFmpeg</code></p>
+            <p><em>Redémarrez votre ordinateur après avoir installé FFmpeg.</em></p>
+
+            <h3>Étape 2: Installer Whisper</h3>
+            <p><code>pip install -U openai-whisper</code></p>
+
+            <h3>Étape 3: Installer Ollama</h3>
+            <p><code>winget install Ollama.Ollama</code></p>
+
+            <h3>Étape 4: Télécharger les Modèles</h3>
+            <p><code>ollama pull qwen2.5:0.5b</code></p>
+            <p><code>ollama pull llama3.2:1b</code></p>
+        </section>
+
+        <footer>
+            <p>Développé avec précision technique et accessibilité réelle par <strong>Melhym Quemel</strong>.</p>
+            <p><strong>Email:</strong> <a href="mailto:mpquemel@gmail.com">mpquemel@gmail.com</a></p>
+            <p><strong>Dépôt:</strong> <a href="https://github.com/mpquemel/nvoice" target="_blank">https://github.com/mpquemel/nvoice</a></p>
+            <p>© 2026 Melhym Quemel - Licence GPL v2+</p>
+        </footer>
+    </main>
+</body>
+</html>

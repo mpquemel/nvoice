@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVoice - مساعد الصوت الذكي لـ NVDA</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px 40px;
+            font-size: 110%;
+            direction: rtl;
+        }
+        main { max-width: 900px; margin: 0 auto; }
+        h1, h2, h3 { color: #FFD700; margin-top: 1.5em; }
+        h1 { border-bottom: 2px solid #FFD700; padding-bottom: 10px; }
+        a { color: #4DB8FF; text-decoration: underline; }
+        a:hover, a:focus { color: #FF9900; background-color: #222222; outline: 3px solid #FFD700; outline-offset: 2px; }
+        code, kbd { background-color: #2A2A2A; color: #E0E0E0; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; border: 1px solid #555555; }
+        kbd { color: #FFD700; font-weight: bold; }
+        .note { background-color: #1E2A38; border-right: 5px solid #4DB8FF; padding: 15px; margin: 20px 0; }
+        dl { background-color: #1A1A1A; padding: 20px; border-radius: 8px; border: 1px solid #333333; }
+        dt { font-weight: bold; font-size: 1.2em; color: #FFD700; margin-top: 15px; }
+        dd { margin-right: 0; margin-bottom: 15px; padding-right: 20px; border-right: 2px solid #444444; }
+        footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #444444; text-align: center; }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>NVoice - مساعد الصوت الذكي لـ NVDA</h1>
+            <p><strong>المؤلف:</strong> ملكيم كيميل (Melhym Quemel)</p>
+            <p><strong>الإصدار:</strong> 2.0.0</p>
+        </header>
+
+        <section>
+            <h2>1. حول NVoice</h2>
+            <p><strong>NVoice</strong> هو إضافة تحول NVDA إلى مساعد محادثة ذكي منخفض التأخير جداً. باستخدامه، يمكنك المحادثة مع نماذج الذكاء الاصطناعي الأكثر تقدماً في العالم باستخدام صوتك فقط. لا يستخدم NVoice مكتبات خارجية ثقيلة؛ يقوم بتدفق نص الذكاء الاصطناعي مباشرة إلى صوت NVDA الأصلي في الوقت الفعلي، وهو متوافق مع NVDA 32 بت و64 بت.</p>
+        </section>
+
+        <section>
+            <h2>2. اختصارات لوحة المفاتيح (الأوامر العامة)</h2>
+            <p>تم تصميم NVoice ليتم تشغيله بسرعة دون مقاطعة سير عملك:</p>
+            
+            <dl>
+                <dt><kbd>NVDA + Z</kbd></dt>
+                <dd><strong>بدء/إيقاف المحادثة:</strong> اضغط ليبدأ NVoice في الاستماع إلى ميكروفونك. سيعلن NVDA "جاري الاستماع...". تحدث ما تريد واضغط الاختصار مرة أخرى لإرسال الصوت.</dd>
+
+                <dt><kbd>NVDA + Shift + Z</kbd></dt>
+                <dd><strong>إرسال سياق الشاشة:</strong> يعمل مثل الأمر السابق، لكنه يلتقط النص حيث يكون مؤشر NVDA مركزاً ويلحقه بسؤالك.</dd>
+
+                <dt><kbd>NVDA + Alt + Z</kbd></dt>
+                <dd><strong>مسح السجل:</strong> يعيد تعيين ذاكرة السياق للمحادثة الحالية. هذا الأمر لا يحذف السجل المحفوظ في الملف.</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>3. تكوين مزودي الذكاء الاصطناعي</h2>
+            <p>انتقل إلى <strong>NVDA + N > التفضيلات > الإعدادات > NVoice</strong> للتكوين:</p>
+
+            <h3>Groq (موصى به لـ STT)</h3>
+            <p>يستخدم Groq بنية معالجة فائقة السرعة (LPU). موصى به لتحويل الصوت إلى نص (STT) باستخدام Whisper-Large.</p>
+            <ul>
+                <li><strong>مفتاح API:</strong> <a href="https://console.groq.com/keys" target="_blank">Groq Console</a></li>
+                <li><strong>التكلفة:</strong> حصة مجانية سخية جداً.</li>
+            </ul>
+
+            <h3>Google Gemini</h3>
+            <p>ذكاء اصطناعي من جوجل. ممتاز للاستجابات السلسة والتحليلات التفصيلية.</p>
+            <ul>
+                <li><strong>مفتاح API:</strong> <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
+            </ul>
+
+            <h3>OpenAI (ChatGPT)</h3>
+            <p>يقدم نماذج GPT-5 القوية وما فوقها.</p>
+            <ul>
+                <li><strong>مفتاح API:</strong> <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></li>
+            </ul>
+
+            <h3>OpenRouter (نماذج متعددة)</h3>
+            <p>بمفتاح واحد، يمكنك الوصول إلى مئات النماذج (Claude, Mistral, Llama, إلخ).</p>
+            <ul>
+                <li><strong>مفتاح API:</strong> <a href="https://openrouter.ai/keys" target="_blank">OpenRouter Keys</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. الخصوصية الكاملة: تشغيل الذكاء الاصطناعي محلياً مع Ollama</h2>
+            <p>للخصوصية المطلقة أو العمل دون اتصال، يتكامل NVoice مع <strong>Ollama</strong>. اضبط على العنوان الافتراضي <code>http://localhost:11434</code>.</p>
+
+            <div class="note">
+                <p><strong>النماذج الموصى بها للحواسيب المتواضعة:</strong></p>
+                <ul>
+                    <li><code>qwen2:0.5b</code> - صغير وسريع جداً.</li>
+                    <li><code>llama3.2:1b</code> - خفيف جداً، ممتاز للنصوص السريعة.</li>
+                    <li><code>phi3:mini</code> - قدرة عالية على التفكير.</li>
+                </ul>
+                <p>للتنزيل: <code>ollama pull llama3.2:1b</code></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. tutorial: تثبيت Whisper و Ollama (Windows)</h2>
+            
+            <h3>الخطوة 1: تثبيت Python و FFmpeg</h3>
+            <p>افتح موجه الأوامر كمسؤول ونفذ:</p>
+            <p><code>winget install Python.Python.3.11</code></p>
+            <p><code>winget install Gyan.FFmpeg</code></p>
+            <p><em>أعد تشغيل الكمبيوتر بعد تثبيت FFmpeg.</em></p>
+
+            <h3>الخطوة 2: تثبيت Whisper</h3>
+            <p><code>pip install -U openai-whisper</code></p>
+
+            <h3>الخطوة 3: تثبيت Ollama</h3>
+            <p><code>winget install Ollama.Ollama</code></p>
+
+            <h3>الخطوة 4: تنزيل النماذج</h3>
+            <p><code>ollama pull qwen2.5:0.5b</code></p>
+            <p><code>ollama pull llama3.2:1b</code></p>
+        </section>
+
+        <footer>
+            <p>تم التطوير بدقة تقنية وإمكانية وصول حقيقية بواسطة <strong>Melhym Quemel</strong>.</p>
+            <p><strong>البريد الإلكتروني:</strong> <a href="mailto:mpquemel@gmail.com">mpquemel@gmail.com</a></p>
+            <p><strong>المستودع:</strong> <a href="https://github.com/mpquemel/nvoice" target="_blank">https://github.com/mpquemel/nvoice</a></p>
+            <p>© 2026 Melhym Quemel - ترخيص GPL v2+</p>
+        </footer>
+    </main>
+</body>
+</html>

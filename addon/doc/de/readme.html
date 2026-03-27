@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVoice - KI-Sprachassistent für NVDA</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            font-size: 110%;
+        }
+        main { max-width: 900px; margin: 0 auto; }
+        h1, h2, h3 { color: #FFD700; margin-top: 1.5em; }
+        h1 { border-bottom: 2px solid #FFD700; padding-bottom: 10px; }
+        a { color: #4DB8FF; text-decoration: underline; }
+        a:hover, a:focus { color: #FF9900; background-color: #222222; outline: 3px solid #FFD700; outline-offset: 2px; }
+        code, kbd { background-color: #2A2A2A; color: #E0E0E0; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; border: 1px solid #555555; }
+        kbd { color: #FFD700; font-weight: bold; }
+        .note { background-color: #1E2A38; border-left: 5px solid #4DB8FF; padding: 15px; margin: 20px 0; }
+        dl { background-color: #1A1A1A; padding: 20px; border-radius: 8px; border: 1px solid #333333; }
+        dt { font-weight: bold; font-size: 1.2em; color: #FFD700; margin-top: 15px; }
+        dd { margin-left: 0; margin-bottom: 15px; padding-left: 20px; border-left: 2px solid #444444; }
+        footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #444444; text-align: center; }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>NVoice - KI-Sprachassistent für NVDA</h1>
+            <p><strong>Autor:</strong> Melhym Quemel</p>
+            <p><strong>Version:</strong> 2.0.0</p>
+        </header>
+
+        <section>
+            <h2>1. Über NVoice</h2>
+            <p><strong>NVoice</strong> ist eine Erweiterung, die NVDA in einen KI-gestützten Konversationsassistenten mit sehr geringer Latenz verwandelt. Damit können Sie mit den fortschrittlichsten KI-Modellen der Welt allein durch Ihre Stimme dialogisieren. NVoice verwendet keine schweren Bibliotheken von Drittanbietern; es streamt KI-Text direkt in Echtzeit in die Native Stimme von NVDA, kompatibel mit NVDA 32-Bit und 64-Bit.</p>
+        </section>
+
+        <section>
+            <h2>2. Tastenkürzel (Globale Befehle)</h2>
+            <p>NVoice wurde entwickelt, um schnell ausgelöst zu werden, ohne Ihren Arbeitsablauf zu unterbrechen:</p>
+            
+            <dl>
+                <dt><kbd>NVDA + Z</kbd></dt>
+                <dd><strong> Gespräch starten/stoppen:</strong> Drücken Sie, damit NVoice beginnt, auf Ihr Mikrofon zu hören. NVDA kündigt "Hören..." an. Sprechen Sie, was Sie möchten, und drücken Sie die Tastenkombination erneut, um die Audio zu senden.</dd>
+
+                <dt><kbd>NVDA + Shift + Z</kbd></dt>
+                <dd><strong>Screenkontext senden:</strong> Funktioniert wie der vorherige Befehl, erfasst jedoch den Text, wo sich der NVDA-Cursor befindet, und hängt ihn an Ihre Frage an.</dd>
+
+                <dt><kbd>NVDA + Alt + Z</kbd></dt>
+                <dd><strong>Verlauf löschen:</strong> Setzt den Kontextspeicher der aktuellen Unterhaltung zurück. Dieser Befehl löscht nicht den in einer Datei gespeicherten Verlauf.</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>3. KI-Anbieter konfigurieren</h2>
+            <p>Gehen Sie zu <strong>NVDA + N > Einstellungen > NVoice</strong> zum Konfigurieren:</p>
+
+            <h3>Groq (Für STT empfohlen)</h3>
+            <p>Groq verwendet ultraschnelle Verarbeitungsarchitektur (LPU). Empfohlen für Spracherkennung (STT) mit Whisper-Large.</p>
+            <ul>
+                <li><strong>API-Schlüssel:</strong> <a href="https://console.groq.com/keys" target="_blank">Groq Console</a></li>
+                <li><strong>Kosten:</strong> Extrem großzügiges kostenloses Kontingent.</li>
+            </ul>
+
+            <h3>Google Gemini</h3>
+            <p>Künstliche Intelligenz von Google. Ausgezeichnet für flüssige Antworten und detaillierte Analysen.</p>
+            <ul>
+                <li><strong>API-Schlüssel:</strong> <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
+            </ul>
+
+            <h3>OpenAI (ChatGPT)</h3>
+            <p>Bietet leistungsstarke GPT-5-Modelle und höher.</p>
+            <ul>
+                <li><strong>API-Schlüssel:</strong> <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></li>
+            </ul>
+
+            <h3>OpenRouter (Multi-Modelle)</h3>
+            <p>Mit einem einzigen Schlüssel haben Sie Zugriff auf Hunderte von Modellen (Claude, Mistral, Llama usw.).</p>
+            <ul>
+                <li><strong>API-Schlüssel:</strong> <a href="https://openrouter.ai/keys" target="_blank">OpenRouter Keys</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Totale Privatsphäre: Lokale KI mit Ollama</h2>
+            <p>Für absolute Privatsphäre oder Offline-Arbeit integriert sich NVoice mit <strong>Ollama</strong>. Konfigurieren Sie unter der Standardadresse <code>http://localhost:11434</code>.</p>
+
+            <div class="note">
+                <p><strong>Empfohlene Modelle für bescheidene Computer:</strong></p>
+                <ul>
+                    <li><code>qwen2:0.5b</code> - Extrem klein und schnell.</li>
+                    <li><code>llama3.2:1b</code> - Super leichtgewichtig, hervorragend für schnelle Texte.</li>
+                    <li><code>phi3:mini</code> - Hohe Denkfähigkeit.</li>
+                </ul>
+                <p>Zum Herunterladen: <code>ollama pull llama3.2:1b</code></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Tutorial: Whisper und Ollama installieren (Windows)</h2>
+            
+            <h3>Schritt 1: Python und FFmpeg installieren</h3>
+            <p>Öffnen Sie die Eingabeaufforderung als Administrator und führen Sie aus:</p>
+            <p><code>winget install Python.Python.3.11</code></p>
+            <p><code>winget install Gyan.FFmpeg</code></p>
+            <p><em>Starten Sie Ihren Computer nach der Installation von FFmpeg neu.</em></p>
+
+            <h3>Schritt 2: Whisper installieren</h3>
+            <p><code>pip install -U openai-whisper</code></p>
+
+            <h3>Schritt 3: Ollama installieren</h3>
+            <p><code>winget install Ollama.Ollama</code></p>
+
+            <h3>Schritt 4: Modelle herunterladen</h3>
+            <p><code>ollama pull qwen2.5:0.5b</code></p>
+            <p><code>ollama pull llama3.2:1b</code></p>
+        </section>
+
+        <footer>
+            <p>Mit technischer Präzision und echter Barrierefreiheit entwickelt von <strong>Melhym Quemel</strong>.</p>
+            <p><strong>E-Mail:</strong> <a href="mailto:mpquemel@gmail.com">mpquemel@gmail.com</a></p>
+            <p><strong>Repository:</strong> <a href="https://github.com/mpquemel/nvoice" target="_blank">https://github.com/mpquemel/nvoice</a></p>
+            <p>© 2026 Melhym Quemel - GPL v2+ Lizenz</p>
+        </footer>
+    </main>
+</body>
+</html>
