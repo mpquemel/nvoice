@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVoice - Assistente de Voz com IA para NVDA</title>
+    <style>
+        /* CSS de Alto Contraste - WCAG AAA Compliant */
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            font-size: 110%;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            color: #FFD700; /* Amarelo-Ouro - Contraste excelente contra fundo escuro */
+            margin-top: 1.5em;
+        }
+
+        h1 {
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 10px;
+        }
+
+        a {
+            color: #4DB8FF; /* Azul claro para links */
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        a:hover, a:focus {
+            color: #FF9900;
+            background-color: #222222;
+            outline: 3px solid #FFD700;
+            outline-offset: 2px;
+        }
+
+        code, kbd {
+            background-color: #2A2A2A;
+            color: #E0E0E0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            border: 1px solid #555555;
+        }
+
+        kbd {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .note {
+            background-color: #1E2A38;
+            border-left: 5px solid #4DB8FF;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        dl {
+            background-color: #1A1A1A;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333333;
+        }
+
+        dt {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #FFD700;
+            margin-top: 15px;
+        }
+
+        dd {
+            margin-left: 0;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 2px solid #444444;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #444444;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>NVoice - Assistente de Voz com IA para NVDA</h1>
+            <p><strong>Autor:</strong> Melhym Quemel</p>
+            <p><strong>Versão:</strong> 2.0.0</p>
+        </header>
+
+        <section aria-labelledby="intro-heading">
+            <h2 id="intro-heading">1. Sobre o NVoice</h2>
+            <p>O <strong>NVoice</strong> é um complemento que transforma o seu NVDA em um assistente cognitivo conversacional de baixíssima latência. Com ele, você pode dialogar com os modelos de Inteligência Artificial mais avançados do mundo usando a sua própria voz. O NVoice não utiliza bibliotecas pesadas de terceiros; ele faz o processamento de streaming enviando o texto da IA diretamente para a voz nativa do seu NVDA em tempo real, compatível com NVDA de 32 bit e 64 bit.</p>
+        </section>
+
+        <section aria-labelledby="shortcuts-heading">
+            <h2 id="shortcuts-heading">2. Atalhos de Teclado (Comandos Globais)</h2>
+            <p>O NVoice foi desenhado para ser acionado rapidamente, sem interromper o seu fluxo de trabalho. Abaixo estão os comandos que você utilizará no dia a dia:</p>
+            
+            <dl>
+                <dt><kbd>NVDA + Z</kbd></dt>
+                <dd><strong>Iniciar/Parar Conversa:</strong> Pressione para que o NVoice comece a ouvir o seu microfone. O NVDA anunciará "Ouvindo...". Fale o que desejar e pressione o atalho novamente para enviar o áudio. O sistema anunciará "Processando..." e a IA responderá em instantes.</dd>
+
+                <dt><kbd>NVDA + Shift + Z</kbd></dt>
+                <dd><strong>Enviar Contexto da Tela (Injeção UIA):</strong> Funciona exatamente como o comando anterior, mas com um "superpoder": ele captura o texto exato onde o cursor do seu NVDA está focado (um parágrafo de um site, um documento do Word, uma janela do sistema) e anexa esse texto, de forma invisível, à sua pergunta. <br><em>Exemplo de uso:</em> Posicione o foco em um e-mail longo em inglês, pressione <kbd>NVDA + Shift + Z</kbd> e diga: "Traduza e resuma esta mensagem para mim".</dd>
+
+                <dt><kbd>NVDA + Alt + Z</kbd></dt>
+                <dd><strong>Limpar Histórico de Conversa:</strong> O NVoice possui <em>Memória de Contexto</em>, ou seja, a IA lembra do que vocês conversaram nas últimas iterações. Se você quiser trocar totalmente de assunto e não quiser que a IA confunda as informações, pressione este atalho. O NVDA avisará que a memória foi zerada. Este comando não apaga o histórico permanente das conversas, um recurso opcional que pode ser configurado para salvar o registro em disco.</dd>
+            </dl>
+        </section>
+
+        <section aria-labelledby="providers-heading">
+            <h2 id="providers-heading">3. Configurando Provedores de IA (Nuvem)</h2>
+            <p>Para utilizar os motores de IA em nuvem, você precisará de uma Chave de API (API Key). Acesse o menu do NVDA (NVDA+N), vá em <strong>Preferências &gt; Configurações &gt; NVoice</strong>. O NVoice suporta os seguintes provedores:</p>
+
+            <h3 id="prov-groq">Groq (Recomendado para velocidade na conversão de fala em texto, do inglês, Speech to Text - STT)</h3>
+            <p>O Groq utiliza uma arquitetura de processamento ultrarrápida (LPU). É o motor principal recomendado para a transcrição da sua voz (STT) usando o modelo <em>Whisper-Large</em> e para chat com modelos como o <em>Llama 3</em>.</p>
+            <ul>
+                <li><strong>Onde conseguir a API Key:</strong> <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer">Groq Console API Keys</a></li>
+                <li><strong>Custo:</strong> Possui uma franquia gratuita extremamente generosa.</li>
+            </ul>
+
+            <h3 id="prov-gemini">Google Gemini</h3>
+            <p>A inteligência artificial do Google. Excelente para respostas fluídas, textos criativos e análises detalhadas.</p>
+            <ul>
+                <li><strong>Onde conseguir a API Key:</strong> <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Google AI Studio</a></li>
+                <li><strong>Custo:</strong> O modelo <em>Gemini Flash Latest</em> possui alto limite de requisições gratuitas diárias.</li>
+            </ul>
+
+            <h3 id="prov-openai">OpenAI (ChatGPT)</h3>
+            <p>A criadora do ChatGPT oferece os poderosos modelos GPT-5, GPT-5-turbo e superiores.</p>
+            <ul>
+                <li><strong>Onde conseguir a API Key:</strong> <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer">OpenAI Platform</a></li>
+                <li><strong>Custo:</strong> Plataforma pré-paga (Pay-as-you-go). Exige adição de créditos.</li>
+            </ul>
+
+            <h3 id="prov-openrouter">OpenRouter (Multi-Modelos)</h3>
+            <p>Um hub definitivo. Com apenas uma chave do OpenRouter, você pode conversar com centenas de modelos diferentes (Claude da Anthropic, Mistral, Meta Llama, etc.).</p>
+            <ul>
+                <li><strong>Onde conseguir a API Key:</strong> <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer">OpenRouter Keys</a></li>
+                <li><strong>Custo:</strong> Pague apenas pelo que usar. Muitos modelos possuem versões "Free" na plataforma.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="ollama-heading">
+            <h2 id="ollama-heading">4. Privacidade Total: Rodando IA Local com Ollama</h2>
+            <p>Se você precisa de privacidade absoluta, trabalha com dados sensíveis, ou está sem internet, o NVoice se integra perfeitamente ao <strong>Ollama</strong>. O Ollama permite baixar e rodar modelos de Inteligência Artificial diretamente na sua própria máquina.</p>
+
+            <div class="note">
+                <p><strong>Configuração Padrão:</strong> O NVoice já vem configurado para buscar o Ollama no endereço local padrão: <code>http://localhost:11434</code>. Basta instalar o Ollama, selecionar "ollama" como seu provedor no painel de configurações do NVDA e clicar no botão "Buscar Modelos" para ver os modelos que você tem baixados.</p>
+            </div>
+
+            <h3 id="small-models">Modelos recomendados para Computadores Modestos (Sem placa de vídeo dedicada):</h3>
+            <p>Se o seu computador for mais antigo ou tiver pouca memória RAM, você não precisa ficar de fora! Baixe modelos "SLM" (Small Language Models), que são ágeis e não travam o PC:</p>
+            <ul>
+                <li><code>qwen2:0.5b</code> - Extremamente pequeno e rápido, responde em qualquer notebook básico.</li>
+                <li><code>llama3.2:1b</code> - A nova versão super enxuta da Meta, excelente para textos rápidos.</li>
+                <li><code>phi3:mini</code> - O modelo pequeno da Microsoft, com alta capacidade de raciocínio.</li>
+            </ul>
+            <p>Para baixar um modelo, abra o <em>Prompt de Comando</em> (cmd) do Windows e digite, por exemplo: <code>ollama pull llama3.2:1b</code></p>
+        </section>
+
+        <section aria-labelledby="tutorial-heading">
+            <h2 id="tutorial-heading">5. 📚 Tutorial: Como instalar o Whisper e o Ollama (IA Local) no Windows</h2>
+            <p>O usuário que quiser a versão Offline completa — com Reconhecimento de Voz (Whisper) e Inteligência Artificial de Texto (Ollama) rodando direto no computador — precisará fazer o seguinte:</p>
+
+            <h3 id="passo-1">Passo 1: Instalar o Python e o FFmpeg</h3>
+            <p>O Whisper depende do Python no Windows e do FFmpeg (um "canivete suíço" de áudio) para processar as ondas sonoras.</p>
+            <p>A forma mais fácil de instalar tudo é abrir o <strong>Prompt de Comando (CMD)</strong> como Administrador e rodar os comandos abaixo, um por vez:</p>
+            <p><code>winget install Python.Python.3.11</code></p>
+            <p><code>winget install Gyan.FFmpeg</code></p>
+            <p><em>(Importante: Após a instalação do FFmpeg, é necessário reiniciar o computador para ele entrar na variável de ambiente PATH do Windows).</em></p>
+
+            <h3 id="passo-2">Passo 2: Instalar o Whisper da OpenAI</h3>
+            <p>Após reiniciar o computador, abra o <strong>Prompt de Comando (CMD)</strong> novamente e rode o comando oficial da OpenAI para instalar o motor de transcrição:</p>
+            <p><code>pip install -U openai-whisper</code></p>
+
+            <h3 id="passo-3">Passo 3: Instalar o Ollama</h3>
+            <p>O Ollama é o programa responsável por rodar os modelos de Inteligência Artificial de texto localmente, com muita facilidade. No mesmo Prompt de Comando, digite:</p>
+            <p><code>winget install Ollama.Ollama</code></p>
+            <p><em>(Dica: Se o instalador pedir alguma confirmação na tela, basta pressionar Enter ou "Y" para aceitar. Após a instalação, feche e abra o CMD novamente para garantir que o Windows reconheça o comando).</em></p>
+
+            <h3 id="passo-4">Passo 4: Baixar os Modelos Leves de IA (0.5B e 1B)</h3>
+            <p>Com o Ollama instalado, precisamos baixar os "cérebros" da IA. Selecionamos modelos pequenos e muito rápidos, ideais para computadores com menos recursos e que respondem de forma ágil. No CMD, rode os comandos abaixo (aguarde o primeiro terminar antes de rodar o segundo):</p>
+            <p>Para baixar o Qwen 2.5 (modelo ultra rápido de 0.5 bilhões de parâmetros):<br>
+            <code>ollama pull qwen2.5:0.5b</code></p>
+            <p>Para baixar o Llama 3.2 (modelo leve de 1 bilhão de parâmetros da Meta):<br>
+            <code>ollama pull llama3.2:1b</code></p>
+
+            <h3 id="passo-5">Passo 5: A Primeira Execução e Tempos de Espera</h3>
+            <ul>
+                <li><strong>Para o Whisper:</strong> A primeira vez que você pressionar <kbd>NVDA + Z</kbd> usando o "Local (Whisper CLI Offline)", ele vai demorar um pouco (pode ser 1 ou 2 minutos), porque o script vai baixar silenciosamente o modelo base de áudio (cerca de 140 MB) para o seu computador. A partir da segunda vez, ele usará o modelo salvo e o áudio será transcrito em questão de segundos!</li>
+                <li><strong>Para o Ollama:</strong> O download inicial dos modelos no Passo 4 vai depender da velocidade da sua internet (eles têm entre 400 MB e 1.3 GB). No entanto, uma vez que o download chegue a 100%, eles ficam salvos no seu disco. A partir daí, qualquer consulta feita a esses modelos será processada localmente, garantindo total privacidade e respostas quase instantâneas.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Desenvolvido com precisão técnica e acessibilidade real por <strong>Melhym Quemel</strong>.</p>
+            <p><strong>E-mail de Contato:</strong> <a href="mailto:mpquemel@gmail.com">mpquemel@gmail.com</a></p>
+            <p><strong>Repositório Oficial:</strong> <a href="https://github.com/mpquemel/nvoice" target="_blank" rel="noopener noreferrer">https://github.com/mpquemel/nvoice</a></p>
+            <p>&copy; 2026 Melhym Quemel - Licença GPL v2+</p>
+        </footer>
+    </main>
+</body>
+</html>

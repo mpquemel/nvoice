@@ -1,0 +1,29 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Python files
+*.py text diff=python
+
+# SCons and build files
+*.py eol=lf
+sconstruct eol=lf
+
+# Documentation
+*.md text
+*.html text
+*.css text
+
+# Gettext files (must stay in original encoding)
+*.po text
+
+# Windows specific
+*.ini text eol=crlf
+*.tpl text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.mo binary
+*.nvda-addon binary

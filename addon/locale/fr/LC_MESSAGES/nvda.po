@@ -1,0 +1,195 @@
+# NVoice - AI Voice Assistant for NVDA
+# Copyright (C) 2026 Melhym Quemel
+# This file is distributed under the same license as the nvoice package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NVoice 2.0.0\n"
+"Report-Msgid-Bugs-To: mpquemel@gmail.com\n"
+"POT-Creation-Date: 2026-03-27\n"
+"PO-Revision-Date: 2026-03-27\n"
+"Last-Translator: Melhym Quemel\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: buildVars.py
+msgid "NVoice - AI Voice Assistant for NVDA"
+msgstr "NVoice - Assistant Vocal IA pour NVDA"
+
+#: buildVars.py
+msgid ""
+"NVoice transforms NVDA into a low-latency conversational AI assistant.\n"
+"With NVoice, you can dialog with the world's most advanced AI models using just your voice.\n"
+"No heavy third-party libraries required - it streams AI text directly to your NVDA's native voice in real-time.\n"
+"Compatible with both 32-bit and 64-bit NVDA."
+msgstr ""
+"NVoice transforme NVDA en un assistant conversationnel IA à très faible latence.\n"
+"Avec NVoice, vous pouvez dialoguer avec les modèles d'IA les plus avancés au monde en utilisant simplement votre voix.\n"
+"Aucune bibliothèque tierce lourde requise - il diffuse le texte IA directement vers la voix native de NVDA en temps réel.\n"
+"Compatible avec NVDA 32 bits et 64 bits."
+
+#: buildVars.py
+msgid ""
+"Version 2.0.0:\n"
+"- Complete rewrite for improved performance and compatibility\n"
+"- Added support for multiple AI providers (Groq, Gemini, OpenAI, OpenRouter, Ollama)\n"
+"- New keyboard shortcuts for context injection and history management\n"
+"- Reduced latency with streaming voice synthesis\n"
+"- Full internationalization support (7 languages)\n"
+"- No external dependencies required"
+msgstr ""
+"Version 2.0.0:\n"
+"- Réécriture complète pour de meilleures performances et compatibilité\n"
+"- Ajout du support pour plusieurs fournisseurs d'IA (Groq, Gemini, OpenAI, OpenRouter, Ollama)\n"
+"- Nouveaux raccourcis clavier pour l'injection de contexte et la gestion de l'historique\n"
+"- Latence réduite avec synthèse vocale en streaming\n"
+"- Support complet de l'internationalisation (7 langues)\n"
+"- Aucune dépendance externe requise"
+
+#: __init__.py
+msgid "Activates/Deactivates NVoice (Free Conversation)"
+msgstr "Activer/Désactiver NVoice (Conversation Libre)"
+
+#: __init__.py
+msgid "Activates/Deactivates NVoice (Sending current screen/focus context)"
+msgstr "Activer/Désactiver NVoice (Envoi du contexte écran/priorité actuel)"
+
+#: __init__.py
+msgid "Clears NVoice conversation history"
+msgstr "Efface l'historique de conversation NVoice"
+
+#: nvoice_gui.py
+msgid "LLM Provider:"
+msgstr "Fournisseur LLM:"
+
+#: nvoice_gui.py
+msgid "Voice Recognition (STT)"
+msgstr "Reconnaissance Vocale (STT)"
+
+#: nvoice_gui.py
+msgid "Engine:"
+msgstr "Moteur:"
+
+#: nvoice_gui.py
+msgid "groq (Fast Cloud)"
+msgstr "groq (Cloud Rapide)"
+
+#: nvoice_gui.py
+msgid "local (Whisper CLI Offline)"
+msgstr "local (Whisper CLI Hors Ligne)"
+
+#: nvoice_gui.py
+msgid "Local Model (CLI):"
+msgstr "Modèle Local (CLI):"
+
+#: nvoice_gui.py
+msgid "API Key {provider}:"
+msgstr "Clé API {provider}:"
+
+#: nvoice_gui.py
+msgid "Ollama Endpoint:"
+msgstr "Point de Terminaison Ollama:"
+
+#: nvoice_gui.py
+msgid "Conversation History Export"
+msgstr "Exporter l'Historique des Conversations"
+
+#: nvoice_gui.py
+msgid "Automatically save conversations to text file (.txt)"
+msgstr "Enregistrer automatiquement les conversations dans un fichier texte (.txt)"
+
+#: nvoice_gui.py
+msgid "File Location:"
+msgstr "Emplacement du Fichier:"
+
+#: nvoice_gui.py
+msgid "Browse..."
+msgstr "Parcourir..."
+
+#: nvoice_gui.py
+msgid "Select or create history file"
+msgstr "Sélectionner ou créer un fichier d'historique"
+
+#: nvoice_gui.py
+msgid "Text files (*.txt)|*.txt"
+msgstr "Fichiers texte (*.txt)|*.txt"
+
+#: nvoice_gui.py
+msgid "Error fetching models: {error}"
+msgstr "Erreur lors de la récupération des modèles: {error}"
+
+#: nvoice_gui.py
+msgid "Error fetching"
+msgstr "Erreur de récupération"
+
+#: nvoice_gui.py
+msgid "Fetch Models from Current Provider"
+msgstr "Récupérer les Modèles du Fournisseur Actuel"
+
+#: nvoice_core.py
+msgid "History cleared. Memory reset."
+msgstr "Historique effacé. Mémoire réinitialisée."
+
+#: nvoice_core.py
+msgid "Listening with context..."
+msgstr "Écoute avec contexte..."
+
+#: nvoice_core.py
+msgid "Listening..."
+msgstr "Écoute..."
+
+#: nvoice_core.py
+msgid "Processing..."
+msgstr "Traitement..."
+
+#: nvoice_core.py
+msgid "Internal processing error."
+msgstr "Erreur interne de traitement."
+
+#: nvoice_core.py
+msgid ""
+"User has focus on this text on screen:\n"
+"'''{context}'''\n"
+"\n"
+"User question: {question}"
+msgstr ""
+"L'utilisateur a le focus sur ce texte à l'écran:\n"
+"'''{context}'''\n"
+"\n"
+"Question de l'utilisateur: {question}"
+
+#: nvoice_core.py
+msgid "Local Whisper error."
+msgstr "Erreur Whisper Local."
+
+#: nvoice_core.py
+msgid ""
+"Warning: Whisper command is not installed on your computer. "
+"Change STT to Groq or install Whisper."
+msgstr ""
+"Avertissement: La commande Whisper n'est pas installée sur votre ordinateur. "
+"Changez STT vers Groq ou installez Whisper."
+
+#: nvoice_core.py
+msgid "Groq API Key is missing for STT."
+msgstr "La Clé API Groq est manquante pour STT."
+
+#: nvoice_core.py
+msgid "Groq STT error."
+msgstr "Erreur STT Groq."
+
+#: nvoice_core.py
+msgid "Communication error in streaming."
+msgstr "Erreur de communication en streaming."
+
+#: nvoice_core.py
+msgid "Whisper Local CLI (Model: {model})"
+msgstr "Whisper Local CLI (Modèle: {model})"
+
+#: nvoice_core.py
+msgid "Groq Whisper (Fast Cloud)"
+msgstr "Groq Whisper (Cloud Rapide)"

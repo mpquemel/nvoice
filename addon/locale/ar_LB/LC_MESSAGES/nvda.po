@@ -1,0 +1,195 @@
+# NVoice - AI Voice Assistant for NVDA
+# Copyright (C) 2026 Melhym Quemel
+# This file is distributed under the same license as the nvoice package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NVoice 2.0.0\n"
+"Report-Msgid-Bugs-To: mpquemel@gmail.com\n"
+"POT-Creation-Date: 2026-03-27\n"
+"PO-Revision-Date: 2026-03-27\n"
+"Last-Translator: Melhym Quemel\n"
+"Language-Team: Arabic (Lebanon)\n"
+"Language: ar_LB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#: buildVars.py
+msgid "NVoice - AI Voice Assistant for NVDA"
+msgstr "NVoice - مساعد الصوت الذكي لـ NVDA"
+
+#: buildVars.py
+msgid ""
+"NVoice transforms NVDA into a low-latency conversational AI assistant.\n"
+"With NVoice, you can dialog with the world's most advanced AI models using just your voice.\n"
+"No heavy third-party libraries required - it streams AI text directly to your NVDA's native voice in real-time.\n"
+"Compatible with both 32-bit and 64-bit NVDA."
+msgstr ""
+"يحول NVoice NVDA إلى مساعد محادثة ذكي منخفض التأخير.\n"
+"باستخدام NVoice، يمكنك الحوار مع نماذج الذكاء الاصطناعي الأكثر تقدمًا في العالم باستخدام صوتك فقط.\n"
+"لا حاجة لمكتبات خارجية ثقيلة - يقوم بتدفق نص الذكاء الاصطناعي مباشرة إلى صوت NVDA الأصلي في الوقت الفعلي.\n"
+"متوافق مع NVDA بإصدار 32 بت و64 بت."
+
+#: buildVars.py
+msgid ""
+"Version 2.0.0:\n"
+"- Complete rewrite for improved performance and compatibility\n"
+"- Added support for multiple AI providers (Groq, Gemini, OpenAI, OpenRouter, Ollama)\n"
+"- New keyboard shortcuts for context injection and history management\n"
+"- Reduced latency with streaming voice synthesis\n"
+"- Full internationalization support (7 languages)\n"
+"- No external dependencies required"
+msgstr ""
+"الإصدار 2.0.0:\n"
+"- إعادة كتابة كاملة لتحسين الأداء والتوافق\n"
+"- إضافة دعم لمزودي ذكاء اصطناعي متعددين (Groq, Gemini, OpenAI, OpenRouter, Ollama)\n"
+"- اختصارات لوحة مفاتيح جديدة لحقن السياق وإدارة السجل\n"
+"- تأخير أقل مع تخليق الصوت المتدفق\n"
+"- دعم كامل للترجمة الدولية (7 لغات)\n"
+"- لا توجد تبعيات خارجية مطلوبة"
+
+#: __init__.py
+msgid "Activates/Deactivates NVoice (Free Conversation)"
+msgstr "تفعيل/إلغاء NVoice (محادثة حرة)"
+
+#: __init__.py
+msgid "Activates/Deactivates NVoice (Sending current screen/focus context)"
+msgstr "تفعيل/إلغاء NVoice (إرسال سياق الشاشة/التركيز الحالي)"
+
+#: __init__.py
+msgid "Clears NVoice conversation history"
+msgstr "مسح سجل محادثات NVoice"
+
+#: nvoice_gui.py
+msgid "LLM Provider:"
+msgstr "مزود LLM:"
+
+#: nvoice_gui.py
+msgid "Voice Recognition (STT)"
+msgstr "التعرف على الصوت (STT)"
+
+#: nvoice_gui.py
+msgid "Engine:"
+msgstr "المحرك:"
+
+#: nvoice_gui.py
+msgid "groq (Fast Cloud)"
+msgstr "groq (سحابي سريع)"
+
+#: nvoice_gui.py
+msgid "local (Whisper CLI Offline)"
+msgstr "محلي (Whisper CLI بدون اتصال)"
+
+#: nvoice_gui.py
+msgid "Local Model (CLI):"
+msgstr "النموذج المحلي (CLI):"
+
+#: nvoice_gui.py
+msgid "API Key {provider}:"
+msgstr "مفتاح API {provider}:"
+
+#: nvoice_gui.py
+msgid "Ollama Endpoint:"
+msgstr "نقطة نهاية Ollama:"
+
+#: nvoice_gui.py
+msgid "Conversation History Export"
+msgstr "تصدير سجل المحادثات"
+
+#: nvoice_gui.py
+msgid "Automatically save conversations to text file (.txt)"
+msgstr "حفظ المحادثات تلقائيًا في ملف نصي (.txt)"
+
+#: nvoice_gui.py
+msgid "File Location:"
+msgstr "موقع الملف:"
+
+#: nvoice_gui.py
+msgid "Browse..."
+msgstr "استعراض..."
+
+#: nvoice_gui.py
+msgid "Select or create history file"
+msgstr "حدد أو أنشئ ملف السجل"
+
+#: nvoice_gui.py
+msgid "Text files (*.txt)|*.txt"
+msgstr "ملفات نصية (*.txt)|*.txt"
+
+#: nvoice_gui.py
+msgid "Error fetching models: {error}"
+msgstr "خطأ في جلب النماذج: {error}"
+
+#: nvoice_gui.py
+msgid "Error fetching"
+msgstr "خطأ في الجلب"
+
+#: nvoice_gui.py
+msgid "Fetch Models from Current Provider"
+msgstr "جلب النماذج من المزود الحالي"
+
+#: nvoice_core.py
+msgid "History cleared. Memory reset."
+msgstr "تم مسح السجل. تم إعادة تعيين الذاكرة."
+
+#: nvoice_core.py
+msgid "Listening with context..."
+msgstr "الاستماع مع السياق..."
+
+#: nvoice_core.py
+msgid "Listening..."
+msgstr "الاستماع..."
+
+#: nvoice_core.py
+msgid "Processing..."
+msgstr "جارٍ المعالجة..."
+
+#: nvoice_core.py
+msgid "Internal processing error."
+msgstr "خطأ في المعالجة الداخلية."
+
+#: nvoice_core.py
+msgid ""
+"User has focus on this text on screen:\n"
+"'''{context}'''\n"
+"\n"
+"User question: {question}"
+msgstr ""
+"المستخدم لديه التركيز على هذا النص على الشاشة:\n"
+"'''{context}'''\n"
+"\n"
+"سؤال المستخدم: {question}"
+
+#: nvoice_core.py
+msgid "Local Whisper error."
+msgstr "خطأ في Whisper المحلي."
+
+#: nvoice_core.py
+msgid ""
+"Warning: Whisper command is not installed on your computer. "
+"Change STT to Groq or install Whisper."
+msgstr ""
+"تحذير: أمر Whisper غير مثبت على جهازك. "
+"قم بتغيير STT إلى Groq أو ثبّت Whisper."
+
+#: nvoice_core.py
+msgid "Groq API Key is missing for STT."
+msgstr "مفتاح API الخاص بـ Groq مفقود لـ STT."
+
+#: nvoice_core.py
+msgid "Groq STT error."
+msgstr "خطأ في STT لـ Groq."
+
+#: nvoice_core.py
+msgid "Communication error in streaming."
+msgstr "خطأ في الاتصال أثناء البث."
+
+#: nvoice_core.py
+msgid "Whisper Local CLI (Model: {model})"
+msgstr "Whisper CLI المحلي (النموذج: {model})"
+
+#: nvoice_core.py
+msgid "Groq Whisper (Fast Cloud)"
+msgstr "Groq Whisper (سحابي سريع)"
